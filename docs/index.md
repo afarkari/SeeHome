@@ -9,4 +9,5 @@ Gas meter: BK-G4T
 
 ## Google Docs
 Push data to Google docs spreadsheet
-[API](https://developers.google.com/sheets/api/quickstart/python)
+[API](https://developers.google.com/sheets/api/quickstart/python)<br>
+[append](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append)
