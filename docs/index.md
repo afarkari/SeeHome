@@ -28,4 +28,6 @@ Push data to Google docs spreadsheet<br>
 
 ## Visual Studio & Python
 As project is in python 2.7 and you have most probably 3.6 with your PC, you have to manage multiple python environments in Visual Studio.
-[VS](https://docs.microsoft.com/en-us/visualstudio/python/python-environments)
+[VS](https://docs.microsoft.com/en-us/visualstudio/python/python-environments)<br>
+`error: Microsoft Visual C++ 9.0 is required. Get it from http://aka.ms/vcpython27`<br>
+[c++](https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266)
