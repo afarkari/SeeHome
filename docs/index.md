@@ -19,3 +19,8 @@ Push data to Google docs spreadsheet<br>
 
 ## Git/Github basics
 * [Add files](https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/)
+`$ git clone https://github.com/afarkari/SeeHome.git`
+`$ git add filename`
+`$ git commit -m "add change locally and prepare for push"`
+`$ git push origin branchname`
+`$ git pull origin master`
