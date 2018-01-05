@@ -14,8 +14,8 @@ Push data to Google docs spreadsheet<br>
 [append](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append)
 
 ## Autostart application on rpi after boot
-* sudo vi /etc/rc.local (or any other editor, vi is considered to be clumsy :) )
-* add before 'exit 0': /usr/bin/python /home/pi/SeeHome/sensors.py
+* `sudo vi /etc/rc.local` (or any other editor, **vi** is considered to be clumsy :) )
+* add before `'exit 0'`: `/usr/bin/python /home/pi/SeeHome/sensors.py` (considering `SeeHome` as your project folder)
 
 ## Git/Github basics
 * [Add files](https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/)
