@@ -24,3 +24,8 @@ Push data to Google docs spreadsheet<br>
 `$ git commit -m "add change locally and prepare for push"`
 `$ git push origin branchname`
 `$ git pull origin master`
+
+
+## Visual Studio & Python
+As project is in python 2.7 and you have most probably 3.6 with your PC, you have to manage multiple python environments in Visual Studio.
+[VS](https://docs.microsoft.com/en-us/visualstudio/python/python-environments)
