@@ -8,6 +8,7 @@ Gas meter: BK-G4T
 ![reed-switch](reed-switch.jpg)
 
 ## Google Docs
-Push data to Google docs spreadsheet
+Push data to Google docs spreadsheet<br>
 [API](https://developers.google.com/sheets/api/quickstart/python)<br>
+(c:\Python27>scripts\pip install --upgrade google-api-python-client)<br>
 [append](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append)
