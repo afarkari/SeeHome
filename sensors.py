@@ -36,7 +36,8 @@ io.setup(27, io.IN, pull_up_down=io.PUD_UP)  # activate input with PullUp
 global gas_ticks
 global gas_total
 global time_stamp
-gas_ticks, gas_total = 0, 0
+global noise_ticks
+gas_ticks, gas_total, noise_ticks = 0, 0, 0
 time_stamp = time.time()  
 
 def gas_meter(channel):
@@ -45,15 +46,18 @@ def gas_meter(channel):
     global time_stamp
     if io.event_detected(channel):
         time_now = time.time()  
-        if (time_now - time_stamp) >= 5:  # 5 sec to ignore signals (filter)
+        if (time_now - time_stamp) >= 7:  # x sec to ignore signals (filter)
             gas_ticks += 1
             gas_total += 1
-            lcd.set_cursor(0,0)
-            lcd.message('N:'+str(gas_ticks)+' T:'+str(gas_total)+'    ')
             time_stamp = time_now 
+        else:
+            noise_ticks += 1
+        lcd.set_cursor(0,0)
+        lcd.message('N:'+str(gas_ticks)+' T:'+str(gas_total)+' n:'+str(noise_ticks))
+        
 
-io.add_event_detect(27, io.RISING, callback=gas_meter)   # io.FALLING / RISING
-# io.add_event_detect(27, io.FALLING, callback=gas_meter)
+# io.add_event_detect(27, io.RISING, callback=gas_meter)   # io.FALLING / RISING
+io.add_event_detect(27, io.FALLING, callback=gas_meter)
 
 ll=0
 
@@ -64,9 +68,9 @@ while True:
     lcd.set_cursor(0,1)
     lcd.message(time_text_short+' l:'+str(ll)+'  ')
     f = open('/home/pi/SeeHome/gasmeter.csv', 'a')
-    f.write(time_text_long+', '+str(gas_ticks)+'\n')  # python will convert \n to os.linesep
+    f.write(time_text_long+', '+str(gas_ticks)+', '+str(noise_ticks)'\n')  # python will convert \n to os.linesep
     f.close() 
-    gas_ticks = 0
+    gas_ticks, noise_ticks = 0, 0
     time.sleep(60*10)  # 60 sec * 10 min
     # time.sleep(6*1)  # 60 sec * 10 min
 
