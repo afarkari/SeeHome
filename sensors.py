@@ -43,6 +43,7 @@ time_stamp = time.time()
 def gas_meter(channel):
     global gas_ticks
     global gas_total
+    global noise_ticks
     global time_stamp
     if io.event_detected(channel):
         time_now = time.time()  
@@ -68,7 +69,7 @@ while True:
     lcd.set_cursor(0,1)
     lcd.message(time_text_short+' l:'+str(ll)+'  ')
     f = open('/home/pi/SeeHome/gasmeter.csv', 'a')
-    f.write(time_text_long+', '+str(gas_ticks)+', '+str(noise_ticks)'\n')  # python will convert \n to os.linesep
+    f.write(time_text_long+', '+str(gas_ticks)+', '+str(noise_ticks)+'\n')  # python will convert \n to os.linesep
     f.close() 
     gas_ticks, noise_ticks = 0, 0
     time.sleep(60*10)  # 60 sec * 10 min
